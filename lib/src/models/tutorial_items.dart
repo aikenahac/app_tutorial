@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tutorial/src/models/shape_models.dart';
+import 'package:app_tutorial/src/models/shape_models.dart';
 
 class TutorialItems {
   final GlobalKey globalKey;

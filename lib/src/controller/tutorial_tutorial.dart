@@ -1,8 +1,8 @@
 library tutorial;
 
 import 'package:flutter/material.dart';
-import 'package:tutorial/src/models/tutorial_items.dart';
-import 'package:tutorial/src/painter/painter.dart';
+import 'package:app_tutorial/src/models/tutorial_items.dart';
+import 'package:app_tutorial/src/painter/painter.dart';
 
 class Tutorial {
   static showTutorial(
