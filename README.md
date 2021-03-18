@@ -15,23 +15,13 @@ Import the package into your `pubspec.yaml`
 
 ```
 dependencies:
-  tutorial:
-```
-
-If you are using aikenahac's fork:
-
-```
-dependencies:
-  tutorial:
-    git: 
-      url: https://github.com/aikenahac/tutorial.git
-      ref: master
+  app_tutorial: ^currentVersion
 ```
 
 Then import the library into the file you want:
 
 ```
-import 'package:tutorial/tutorial.dart'
+import 'package:app_tutorial/app_tutorial.dart'
 ```
 
 Then create the global keys and name them accordingly to where you are going to use them:
