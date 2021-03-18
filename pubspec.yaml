@@ -5,7 +5,7 @@ homepage: https://github.com/aikenahac/app-tutorial
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter_staggered_grid_view: ^0.3.3
