@@ -1,30 +1,10 @@
 
 
 
-## [0.0.1] - TODO: Add release date.
+## [0.1.0] - Create fork from tutorial package
 
-* First commit.
+* First commit
 
-## [0.0.2] - Simplifying widget.
+## [0.2.0] - New features
 
-* Simplifying widget.
-
-## [0.0.3] - Enabling touch function on the screen.
-
-* Enabling touch function on the screen.
-
-## [0.0.4] - changing component size.
-
-* Enabling touch function on the screen.
-
-## [0.0.5] - Readme.
-
-* Arrumando exemplo e readme
-
-## [0.0.6] - Readme.
-
-* Arrumando exemplo e readme
-
-## [0.0.7] - Readme.
-
-* Arrumando exemplo e readme
+* Add support for custom background colors and new shape
