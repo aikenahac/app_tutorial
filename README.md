@@ -1,4 +1,5 @@
-# Tutorial
+# Flutter App Tutorial
+### This package is a fork of [this](https://pub.dev/packages/tutorial) package, that I reuploaded as a Flutter package due to the package maintainer not responding.
 
 <img src="https://raw.githubusercontent.com/aikenahac/tutorial/master/assets/roundedRectangleExample.jpeg" alt="roundedRectangle" width="200"/>
 
