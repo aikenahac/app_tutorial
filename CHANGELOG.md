@@ -8,3 +8,5 @@
 ## [0.2.0] - New features
 
 * Add support for custom background colors and new shape
+
+## [0.2.1] - Update README
