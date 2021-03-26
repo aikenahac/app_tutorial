@@ -40,8 +40,7 @@ class Tutorial {
                           width: sizeWidget.width,
                           height: sizeWidget.height,
                           color: element.color,
-                          borderRadius: element.borderRadius
-                      ),
+                          borderRadius: element.borderRadius),
                     ),
                     Positioned(
                       top: element.top,
