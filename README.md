@@ -35,10 +35,10 @@ final keyChat = GlobalKey();
 Then create a list of TutorialItems
 
 ```
-List<TutorialItems> itens = [];
+List<TutorialItems> items = [];
 @override
   void initState() {
-    itens.addAll({
+    items.addAll({
       TutorialItems(
           globalKey: keyMenu,
           touchScreen: true,
@@ -126,11 +126,11 @@ List<TutorialItems> itens = [];
   - **shapeFocus** -Focus shape can be chosen using **shapeFocus.oval**, **ShapeFocus.square** or **ShapeFocus.roundedSquare**
   - Can be aligned on the screen as well as positioned using **(top, bottom, left, right)**
 
-**Tutorial.show(context,itens)**
+**Tutorial.show(context,items)**
 
 show() -   the show () method, receives two parameters, the context and the list of TutorialItems you created
-Now just run the Tutorial.show(context, itens)
+Now just run the Tutorial.show(context, items)
 
 ```
-Tutorial.showTutorial(context, itens);
+Tutorial.showTutorial(context, items);
 ```

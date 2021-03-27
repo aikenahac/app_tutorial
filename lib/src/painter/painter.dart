@@ -35,35 +35,32 @@ class HolePainter extends CustomPainter {
           paint);
     } else if (shapeFocus == ShapeFocus.roundedSquare) {
       canvas.drawPath(
-        Path.combine(
-          PathOperation.difference,
-          Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
-          Path()
-            ..addRRect(
-              RRect.fromRectAndCorners(Rect.fromLTWH(
-                dx - (width / 2), dy - (height / 2), width, height),
+          Path.combine(
+            PathOperation.difference,
+            Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
+            Path()
+              ..addRRect(RRect.fromRectAndCorners(
+                Rect.fromLTWH(
+                    dx - (width / 2), dy - (height / 2), width, height),
                 topRight: borderRadius,
                 topLeft: borderRadius,
                 bottomRight: borderRadius,
                 bottomLeft: borderRadius,
-              )
-            )
-            ..close(),
-        ),
-        paint
-      );
+              ))
+              ..close(),
+          ),
+          paint);
     } else {
       canvas.drawPath(
-        Path.combine(
-          PathOperation.difference,
-          Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
-          Path()
-            ..addRect(Rect.fromLTWH(
-                dx - (width / 2), dy - (height / 2), width, height))
-            ..close(),
-        ),
-        paint
-      );
+          Path.combine(
+            PathOperation.difference,
+            Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
+            Path()
+              ..addRect(Rect.fromLTWH(
+                  dx - (width / 2), dy - (height / 2), width, height))
+              ..close(),
+          ),
+          paint);
     }
   }
 

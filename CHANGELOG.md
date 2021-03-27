@@ -9,3 +9,5 @@
 ## [0.2.1] - Update README.md
 
 ## [0.2.2] - pub.dev pt fixes
+
+## [0.2.3] - Spelling errors and pub points
