@@ -12,76 +12,7 @@ class Tutorial {
     OverlayState overlayState = Overlay.of(context)!;
     List<OverlayEntry> entries = [];
     children.forEach((element) async {
-      var globalKey = element.globalKey;
-      if (globalKey != null) {
-        var offset = _capturePositionWidget(globalKey);
-        var sizeWidget = _getSizeWidget(globalKey);
-        entries.add(
-          OverlayEntry(
-            builder: (context) {
-              return GestureDetector(
-                onTap: element.touchScreen == true
-                    ? () {
-                        entries[count].remove();
-                        count++;
-                        if (count != entries.length) {
-                          overlayState.insert(entries[count]);
-                        }
-                      }
-                    : () {},
-                child: Scaffold(
-                  backgroundColor: Colors.transparent,
-                  body: Stack(
-                    children: [
-                      CustomPaint(
-                        size: size,
-                        painter: HolePainter(
-                            shapeFocus: element.shapeFocus,
-                            dx: offset.dx + (sizeWidget.width / 2),
-                            dy: offset.dy + (sizeWidget.height / 2),
-                            width: sizeWidget.width,
-                            height: sizeWidget.height,
-                            color: element.color,
-                            borderRadius: element.borderRadius),
-                      ),
-                      Positioned(
-                        top: element.top,
-                        bottom: element.bottom,
-                        left: element.left,
-                        right: element.right,
-                        child: Container(
-                          width: size.width * 0.8,
-                          child: Column(
-                            crossAxisAlignment: element.crossAxisAlignment,
-                            mainAxisAlignment: element.mainAxisAlignment,
-                            children: [
-                              ...element.children!,
-                              GestureDetector(
-                                child: element.widgetNext ??
-                                    Text(
-                                      "NEXT",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                onTap: () {
-                                  entries[count].remove();
-                                  count++;
-                                  if (count != entries.length) {
-                                    overlayState.insert(entries[count]);
-                                  }
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
-        );
-      } else{
+      if (element.globalKey == null) {
         entries.add(
           OverlayEntry(
             builder: (context) {
@@ -136,6 +67,74 @@ class Tutorial {
             },
           ),
         );
+      } else {
+        var offset = _capturePositionWidget(element.globalKey!);
+        var sizeWidget = _getSizeWidget(element.globalKey!);
+        entries.add(
+          OverlayEntry(
+            builder: (context) {
+              return GestureDetector(
+                onTap: element.touchScreen == true
+                    ? () {
+                  entries[count].remove();
+                  count++;
+                  if (count != entries.length) {
+                    overlayState.insert(entries[count]);
+                  }
+                }
+                    : () {},
+                child: Scaffold(
+                  backgroundColor: Colors.transparent,
+                  body: Stack(
+                    children: [
+                      CustomPaint(
+                        size: size,
+                        painter: HolePainter(
+                            shapeFocus: element.shapeFocus,
+                            dx: offset.dx + (sizeWidget.width / 2),
+                            dy: offset.dy + (sizeWidget.height / 2),
+                            width: sizeWidget.width,
+                            height: sizeWidget.height,
+                            color: element.color,
+                            borderRadius: element.borderRadius),
+                      ),
+                      Positioned(
+                        top: element.top,
+                        bottom: element.bottom,
+                        left: element.left,
+                        right: element.right,
+                        child: Container(
+                          width: size.width * 0.8,
+                          child: Column(
+                            crossAxisAlignment: element.crossAxisAlignment,
+                            mainAxisAlignment: element.mainAxisAlignment,
+                            children: [
+                              ...element.children!,
+                              GestureDetector(
+                                child: element.widgetNext ??
+                                    Text(
+                                      "NEXT",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                onTap: () {
+                                  entries[count].remove();
+                                  count++;
+                                  if (count != entries.length) {
+                                    overlayState.insert(entries[count]);
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        );
       }
     });
 
@@ -143,7 +142,8 @@ class Tutorial {
   }
 
   static Offset _capturePositionWidget(GlobalKey key) {
-    RenderBox renderPosition = key.currentContext!.findRenderObject() as RenderBox;
+    RenderBox renderPosition =
+        key.currentContext!.findRenderObject() as RenderBox;
 
     return renderPosition.localToGlobal(Offset.zero);
   }
