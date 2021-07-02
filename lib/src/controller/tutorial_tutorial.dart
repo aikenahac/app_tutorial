@@ -9,11 +9,11 @@ class Tutorial {
       BuildContext context, List<TutorialItems> children) async {
     int count = 0;
     var size = MediaQuery.of(context).size;
-    OverlayState overlayState = Overlay.of(context);
+    OverlayState overlayState = Overlay.of(context)!;
     List<OverlayEntry> entries = [];
     children.forEach((element) async {
-      var offset = _capturePositionWidget(element.globalKey);
-      var sizeWidget = _getSizeWidget(element.globalKey);
+      var offset = _capturePositionWidget(element.globalKey!);
+      var sizeWidget = _getSizeWidget(element.globalKey!);
       entries.add(
         OverlayEntry(
           builder: (context) {
@@ -53,7 +53,7 @@ class Tutorial {
                           crossAxisAlignment: element.crossAxisAlignment,
                           mainAxisAlignment: element.mainAxisAlignment,
                           children: [
-                            ...element.children,
+                            ...element.children!,
                             GestureDetector(
                               child: element.widgetNext ??
                                   Text(
@@ -85,13 +85,13 @@ class Tutorial {
   }
 
   static Offset _capturePositionWidget(GlobalKey key) {
-    RenderBox renderPosition = key.currentContext.findRenderObject();
+    RenderBox renderPosition = key.currentContext!.findRenderObject() as RenderBox;
 
     return renderPosition.localToGlobal(Offset.zero);
   }
 
   static Size _getSizeWidget(GlobalKey key) {
-    RenderBox renderSize = key.currentContext.findRenderObject();
+    RenderBox renderSize = key.currentContext!.findRenderObject() as RenderBox;
     return renderSize.size;
   }
 }
