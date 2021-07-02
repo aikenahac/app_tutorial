@@ -31,6 +31,9 @@ class Tutorial {
                     backgroundColor: Colors.transparent,
                     body: Stack(
                       children: [
+                        CustomPaint(
+                          size: size,
+                        ),
                         Positioned(
                           top: element.top,
                           bottom: element.bottom,
@@ -91,13 +94,14 @@ class Tutorial {
                         CustomPaint(
                           size: size,
                           painter: HolePainter(
-                              shapeFocus: element.shapeFocus,
-                              dx: offset.dx + (sizeWidget.width / 2),
-                              dy: offset.dy + (sizeWidget.height / 2),
-                              width: sizeWidget.width,
-                              height: sizeWidget.height,
-                              color: element.color,
-                              borderRadius: element.borderRadius),
+                            shapeFocus: element.shapeFocus,
+                            dx: offset.dx + (sizeWidget.width / 2),
+                            dy: offset.dy + (sizeWidget.height / 2),
+                            width: sizeWidget.width,
+                            height: sizeWidget.height,
+                            color: element.color,
+                            borderRadius: element.borderRadius,
+                          ),
                         ),
                         Positioned(
                           top: element.top,
