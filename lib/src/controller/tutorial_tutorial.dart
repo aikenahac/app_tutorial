@@ -12,7 +12,7 @@ class Tutorial {
     OverlayState overlayState = Overlay.of(context)!;
     List<OverlayEntry> entries = [];
     children.forEach((element) async {
-      if (element.globalKey != null) {
+      if (!(element.globalKey == null)) {
         var offset = _capturePositionWidget(element.globalKey!);
         var sizeWidget = _getSizeWidget(element.globalKey!);
         entries.add(
