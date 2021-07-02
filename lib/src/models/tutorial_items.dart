@@ -15,6 +15,7 @@ class TutorialItems {
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
   final bool touchScreen;
+  final bool noWidgetFocused;
 
   TutorialItems({
     this.top,
@@ -30,5 +31,6 @@ class TutorialItems {
     this.color,
     this.borderRadius,
     this.touchScreen = false,
+    this.noWidgetFocused = false,
   });
 }
