@@ -29,7 +29,8 @@ class HolePainter extends CustomPainter {
             PathOperation.difference,
             Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
             Path()
-              ..addOval(Rect.fromCircle(center: Offset(dx!, dy!), radius: width!))
+              ..addOval(
+                  Rect.fromCircle(center: Offset(dx!, dy!), radius: width!))
               ..close(),
           ),
           paint);
@@ -50,7 +51,7 @@ class HolePainter extends CustomPainter {
               ..close(),
           ),
           paint);
-    } else {
+    } else if (shapeFocus == ShapeFocus.square) {
       canvas.drawPath(
           Path.combine(
             PathOperation.difference,
@@ -61,6 +62,11 @@ class HolePainter extends CustomPainter {
               ..close(),
           ),
           paint);
+    } else {
+      canvas.drawPath(
+        Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
+        paint,
+      );
     }
   }
 
