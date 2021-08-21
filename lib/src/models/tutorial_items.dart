@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:app_tutorial/src/models/shape_models.dart';
 
 class TutorialItems {
-  final GlobalKey globalKey;
-  final ShapeFocus shapeFocus;
-  final List<Widget> children;
-  final double top;
-  final double bottom;
-  final double left;
-  final double right;
-  final Widget widgetNext;
-  final Color color;
-  final Radius borderRadius;
+  final GlobalKey? globalKey;
+  final ShapeFocus? shapeFocus;
+  final List<Widget>? children;
+  final double? top;
+  final double? bottom;
+  final double? left;
+  final double? right;
+  final Widget? widgetNext;
+  final Color? color;
+  final Radius? borderRadius;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
   final bool touchScreen;

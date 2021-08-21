@@ -11,3 +11,5 @@
 ## [0.2.2] - pub.dev pt fixes
 
 ## [0.2.3] - Spelling errors and pub points
+
+## [0.3.0] - Migrate to null safety
