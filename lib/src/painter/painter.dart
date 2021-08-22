@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_tutorial/src/models/shape_models.dart';
 
+/// A class that holds the data of the shapes
 class HolePainter extends CustomPainter {
   final double? dx;
   final double? dy;
@@ -10,6 +11,7 @@ class HolePainter extends CustomPainter {
   final Radius? borderRadius;
   final ShapeFocus? shapeFocus;
 
+  /// A constructor that takes in the data of the shape
   HolePainter({
     this.dx,
     this.dy,
@@ -21,6 +23,7 @@ class HolePainter extends CustomPainter {
   });
 
   @override
+  /// A method that paints the shape
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = color!;
     if (shapeFocus == ShapeFocus.oval) {
@@ -65,6 +68,7 @@ class HolePainter extends CustomPainter {
   }
 
   @override
+  /// A method that returns whether the shape is a custom shape or not
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;
   }

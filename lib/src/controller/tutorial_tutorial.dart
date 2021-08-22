@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:app_tutorial/src/models/tutorial_items.dart';
 import 'package:app_tutorial/src/painter/painter.dart';
 
+/// This is the main class of the app.
 class Tutorial {
+  /// The method that shows the tutorial
   static showTutorial(
       BuildContext context, List<TutorialItems> children) async {
     int count = 0;
@@ -84,12 +86,14 @@ class Tutorial {
     overlayState.insert(entries[0]);
   }
 
+  /// This method returns the position of the widget
   static Offset _capturePositionWidget(GlobalKey key) {
     RenderBox renderPosition = key.currentContext!.findRenderObject() as RenderBox;
 
     return renderPosition.localToGlobal(Offset.zero);
   }
 
+  /// This method returns the size of the widget
   static Size _getSizeWidget(GlobalKey key) {
     RenderBox renderSize = key.currentContext!.findRenderObject() as RenderBox;
     return renderSize.size;

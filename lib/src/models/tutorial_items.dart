@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_tutorial/src/models/shape_models.dart';
 
+/// This is the class that will be used to create the shapes
 class TutorialItems {
   final GlobalKey? globalKey;
   final ShapeFocus? shapeFocus;
@@ -16,6 +17,7 @@ class TutorialItems {
   final MainAxisAlignment mainAxisAlignment;
   final bool touchScreen;
 
+  /// This is the constructor of the class
   TutorialItems({
     this.top,
     this.bottom,

@@ -13,3 +13,5 @@
 ## [0.2.3] - Spelling errors and pub points
 
 ## [0.3.0] - Migrate to null safety
+
+## [0.3.1] - Provide better documentation in the code
