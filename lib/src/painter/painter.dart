@@ -23,6 +23,7 @@ class HolePainter extends CustomPainter {
   });
 
   @override
+
   /// A method that paints the shape
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = color!;
@@ -32,7 +33,8 @@ class HolePainter extends CustomPainter {
             PathOperation.difference,
             Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
             Path()
-              ..addOval(Rect.fromCircle(center: Offset(dx!, dy!), radius: width!))
+              ..addOval(
+                  Rect.fromCircle(center: Offset(dx!, dy!), radius: width!))
               ..close(),
           ),
           paint);
@@ -68,6 +70,7 @@ class HolePainter extends CustomPainter {
   }
 
   @override
+
   /// A method that returns whether the shape is a custom shape or not
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;

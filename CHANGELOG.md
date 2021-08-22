@@ -15,3 +15,5 @@
 ## [0.3.0] - Migrate to null safety
 
 ## [0.3.1] - Provide better documentation in the code
+
+## [0.3.2] - Format project

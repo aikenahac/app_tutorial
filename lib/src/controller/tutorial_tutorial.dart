@@ -88,7 +88,8 @@ class Tutorial {
 
   /// This method returns the position of the widget
   static Offset _capturePositionWidget(GlobalKey key) {
-    RenderBox renderPosition = key.currentContext!.findRenderObject() as RenderBox;
+    RenderBox renderPosition =
+        key.currentContext!.findRenderObject() as RenderBox;
 
     return renderPosition.localToGlobal(Offset.zero);
   }

@@ -1,6 +1,6 @@
 name: app_tutorial
 description: Package for creating tutorials for your app to explain the features of the app in a seamless ways to you users.
-version: 0.3.1
+version: 0.3.2
 homepage: https://github.com/aikenahac/app-tutorial
 
 environment:
