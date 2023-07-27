@@ -23,6 +23,11 @@ View the [example project](https://github.com/aikenahac/app_tutorial/tree/master
   - **shapeFocus** -Focus shape can be chosen using **shapeFocus.oval**, **ShapeFocus.square** or **ShapeFocus.roundedSquare**
   - Can be aligned on the screen as well as positioned using **(top, bottom, left, right)**
 
+| Property | Description | Type | Required |
+| -------- | ----------- | ---- | -------- |
+| globalKey | The Global Key of the component you want to focus on | GlobalKey | `yes` |
+
+
 **Tutorial.show(context,items)**
 
 show() -   the show () method, receives two parameters, the context and the list of TutorialItems you created

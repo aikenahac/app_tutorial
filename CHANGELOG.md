@@ -20,3 +20,6 @@
 
 ## [1.0.0] - First release
 Includes breaking changes: TutorialItems -> TutorialItem
+
+## [1.0.1] - Updated base model
+Major change on the TutorialItem model. See the documentation

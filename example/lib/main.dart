@@ -51,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
     items.addAll({
       TutorialItem(
         globalKey: incrementKey,
-        touchScreen: true,
         top: 200,
         left: width * 0.1,
         right: width * 0.1,
@@ -67,22 +66,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           SizedBox(height: 20.0),
-        ],
-        widgetNext: const Text(
-          'Next',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+          Text(
+            'Next',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
           ),
-        ),
+        ],
       ),
       TutorialItem(
         globalKey: textKey,
-        touchScreen: true,
         top: 200,
         left: width * 0.1,
         right: width * 0.1,
-        color: Colors.black.withOpacity(0.6),
+        shapeFocus: ShapeFocus.square,
+        borderRadius: const Radius.circular(15.0),
         children: const [
           Text(
             'This is the text that displays the status of the counter',
@@ -93,18 +92,17 @@ class _MyHomePageState extends State<MyHomePage> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20.0),
-        ],
-        widgetNext: const Text(
-          'Next',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+          Text(
+            'Next',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
           ),
-        ),
+        ],
       ),
       TutorialItem(
         globalKey: avatarKey,
-        touchScreen: true,
         top: 200,
         left: width * 0.1,
         right: width * 0.1,
@@ -120,14 +118,14 @@ class _MyHomePageState extends State<MyHomePage> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20.0),
-        ],
-        widgetNext: const Text(
-          'Next',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+          Text(
+            'Next',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
           ),
-        ),
+        ],
       ),
     });
   }

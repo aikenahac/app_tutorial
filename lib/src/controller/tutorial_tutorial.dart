@@ -1,7 +1,7 @@
 library tutorial;
 
 import 'package:flutter/material.dart';
-import 'package:app_tutorial/src/models/tutorial_items.dart';
+import 'package:app_tutorial/src/models/tutorial_item.dart';
 import 'package:app_tutorial/src/painter/painter.dart';
 
 /// This is the main class of the app.
@@ -13,21 +13,19 @@ class Tutorial {
     OverlayState overlayState = Overlay.of(context);
     List<OverlayEntry> entries = [];
     children.forEach((element) async {
-      final offset = _capturePositionWidget(element.globalKey!);
-      final sizeWidget = _getSizeWidget(element.globalKey!);
+      final offset = _capturePositionWidget(element.globalKey);
+      final sizeWidget = _getSizeWidget(element.globalKey);
       entries.add(
         OverlayEntry(
           builder: (context) {
             return GestureDetector(
-              onTap: element.touchScreen == true
-                  ? () {
-                      entries[count].remove();
-                      count++;
-                      if (count != entries.length) {
-                        overlayState.insert(entries[count]);
-                      }
-                    }
-                  : () {},
+              onTap: () {
+                entries[count].remove();
+                count++;
+                if (count != entries.length) {
+                  overlayState.insert(entries[count]);
+                }
+              },
               child: Scaffold(
                 backgroundColor: Colors.transparent,
                 body: Stack(
@@ -54,23 +52,7 @@ class Tutorial {
                         child: Column(
                           crossAxisAlignment: element.crossAxisAlignment,
                           mainAxisAlignment: element.mainAxisAlignment,
-                          children: [
-                            ...element.children!,
-                            GestureDetector(
-                              child: element.widgetNext ??
-                                  Text(
-                                    "Next",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                              onTap: () {
-                                entries[count].remove();
-                                count++;
-                                if (count != entries.length) {
-                                  overlayState.insert(entries[count]);
-                                }
-                              },
-                            ),
-                          ],
+                          children: element.children,
                         ),
                       ),
                     )
