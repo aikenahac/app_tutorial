@@ -15,18 +15,21 @@ View the [example project](https://github.com/aikenahac/app_tutorial/tree/master
 
 #### Properties:
 
-**TutorialItems**
-  - **globalKey**  - The Global Key of the component you want to focus on
-  - **touchScreen** - Sets whether to move to the next tutorial items by clicking anywhere on the screen
-  - **children** - List of widgets to compose the screen
-  - **widgetNext** - A component to move to the next item, if touchScreen is equal to false, the click will be only on that component
-  - **shapeFocus** -Focus shape can be chosen using **shapeFocus.oval**, **ShapeFocus.square** or **ShapeFocus.roundedSquare**
-  - Can be aligned on the screen as well as positioned using **(top, bottom, left, right)**
+**TutorialItem**
 
 | Property | Description | Type | Required |
 | -------- | ----------- | ---- | -------- |
-| globalKey | The Global Key of the component you want to focus on | GlobalKey | `yes` |
-
+| globalKey | The Global Key of the component you want to focus on | `GlobalKey` | `yes` |
+| children | List of widgets to show on the screen when this item is active | `List<Widget>` | `yes`|
+| top | Offset from the top | `double` | `no` |
+| left | Offset from the left | `double` | `no` |
+| bottom | Offset from the bottom | `double` | `no` |
+| right | Offset from the right | `double` | `no` |
+| color | Color of the overlay | `Color` | `no` |
+| borderRadius | Radius of the border of the higlighted item | `Radius` | `no` |
+| crossAxisAlignment | Alignment on the cross axis | `CrossAxisAlignment` | `no` |
+| mainAxisAlignment | Alignment on the main axis | `MainAxisAlignment` | `no` |
+| shapeFocus | Shape of the focus element | `ShapeFocus.oval`, `ShapeFocus.square`, `ShapeFocus.roundedSquare` | `no` |  
 
 **Tutorial.show(context,items)**
 
