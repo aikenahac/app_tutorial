@@ -1,13 +1,6 @@
 # Flutter App Tutorial
-### This package is a fork of [this](https://pub.dev/packages/tutorial) package, that I reuploaded as a Flutter package due to the package maintainer not responding.
 
-<img src="https://raw.githubusercontent.com/aikenahac/tutorial/master/assets/roundedRectangleExample.jpeg" alt="roundedRectangle" width="200"/>
-
-<img src="https://raw.githubusercontent.com/aikenahac/tutorial/master/assets/circleExample.jpeg" alt="circleExample" width="200"/>
-
-
-<img src="https://raw.githubusercontent.com/aikenahac/tutorial/master/assets/squareExample.jpeg" alt="squareExample" width="200"/>
-
+<img src="https://raw.githubusercontent.com/aikenahac/tutorial/master/assets/tutorial_demo.gif" alt="roundedRectangle" width="200"/>
 
 ## Usage
 
@@ -134,3 +127,5 @@ Now just run the Tutorial.show(context, items)
 ```
 Tutorial.showTutorial(context, items);
 ```
+
+###### This package is a fork of [this](https://pub.dev/packages/tutorial) package, that I reuploaded as a Flutter package due to the package maintainer not responding.

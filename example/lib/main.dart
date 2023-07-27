@@ -1,193 +1,178 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:app_tutorial/app_tutorial.dart';
 
-main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      iconTheme: IconThemeData(
-        color: Colors.black,
-      ),
-    ),
-    home: Home(),
-  ));
+void main() {
+  runApp(const MyApp());
 }
 
-class Home extends StatefulWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  _HomeState createState() => _HomeState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'App Tutorial Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'App Tutorial Demo'),
+    );
+  }
 }
 
-class _HomeState extends State<Home> {
-  List list = [
-    {"url": "assets/images/sandalia.jpg", "x": 2, "y": 2},
-    {"url": "assets/images/saltos.jpg", "x": 1, "y": 1},
-    {"url": "assets/images/rasteirinha.jpg", "x": 1, "y": 1}
-  ];
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
 
-  var keyMenu = GlobalKey();
-  var keyContainer = GlobalKey();
-  var keyChat = GlobalKey();
+  final String title;
 
-  List<TutorialItems> itens = [];
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  List<TutorialItem> items = [];
+
+  final incrementKey = GlobalKey();
+  final avatarKey = GlobalKey();
+  final textKey = GlobalKey();
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void initItems() {
+    final width = MediaQuery.of(context).size.width;
+
+    items.addAll({
+      TutorialItem(
+        globalKey: incrementKey,
+        touchScreen: true,
+        top: 200,
+        left: width * 0.1,
+        right: width * 0.1,
+        color: Colors.black.withOpacity(0.6),
+        borderRadius: const Radius.circular(15.0),
+        shapeFocus: ShapeFocus.roundedSquare,
+        children: const [
+          Text(
+            'This is the increment button',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(height: 20.0),
+        ],
+        widgetNext: const Text(
+          'Next',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
+      ),
+      TutorialItem(
+        globalKey: textKey,
+        touchScreen: true,
+        top: 200,
+        left: width * 0.1,
+        right: width * 0.1,
+        color: Colors.black.withOpacity(0.6),
+        children: const [
+          Text(
+            'This is the text that displays the status of the counter',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 20.0),
+        ],
+        widgetNext: const Text(
+          'Next',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
+      ),
+      TutorialItem(
+        globalKey: avatarKey,
+        touchScreen: true,
+        top: 200,
+        left: width * 0.1,
+        right: width * 0.1,
+        color: Colors.black.withOpacity(0.6),
+        shapeFocus: ShapeFocus.oval,
+        children: const [
+          Text(
+            'This is the avatar that displays something',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 20.0),
+        ],
+        widgetNext: const Text(
+          'Next',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
+      ),
+    });
+  }
 
   @override
   void initState() {
-    itens.addAll({
-      TutorialItems(
-          globalKey: keyMenu,
-          touchScreen: true,
-          top: 200,
-          left: 50,
-          color: Color.fromRGBO(0, 179, 104, 0.6),
-          children: [
-            Text(
-              "Ali é nosso menu , você consegue ver varias coisas nele",
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            SizedBox(
-              height: 100,
-            )
-          ],
-          widgetNext: Text(
-            "Toque para continuar",
-            style: TextStyle(
-              color: Colors.purple,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          shapeFocus: ShapeFocus.oval),
-      TutorialItems(
-        globalKey: keyChat,
-        touchScreen: true,
-        top: 200,
-        left: 50,
-        color: Color.fromRGBO(0, 179, 104, 0.6),
-        borderRadius: Radius.circular(25.0),
-        children: [
-          Text(
-            "Qualquer duvida que aparecer , entre no nosso chat , estamos prontos para ajudar",
-            style: TextStyle(color: Colors.black, fontSize: 20),
-          ),
-          SizedBox(
-            height: 100,
-          )
-        ],
-        widgetNext: Text(
-          "Toque para continuar",
-          style: TextStyle(
-            color: Colors.purple,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        shapeFocus: ShapeFocus.roundedSquare,
-      ),
-      TutorialItems(
-        globalKey: keyContainer,
-        touchScreen: true,
-        bottom: 50,
-        left: 50,
-        color: Color.fromRGBO(0, 179, 104, 0.6),
-        children: [
-          Text(
-            "Nessa sessão você vai ter acesso a todas as  Rasteirinhas",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          SizedBox(
-            height: 10,
-          )
-        ],
-        widgetNext: Text(
-          "Sair",
-          style: TextStyle(
-            color: Colors.purple,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        shapeFocus: ShapeFocus.square,
-      ),
-    });
-    Future.delayed(Duration(microseconds: 200)).then((value) {
-      Tutorial.showTutorial(context, itens);
-    });
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    initItems();
+    Future.delayed(const Duration(microseconds: 200)).then((value) {
+      Tutorial.showTutorial(context, items);
+    });
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
         leading: Icon(
-          Icons.menu,
-          key: keyMenu,
+          Icons.add_circle_outline_rounded,
+          key: avatarKey,
         ),
-        elevation: 0,
-        iconTheme: IconTheme.of(context),
-        centerTitle: true,
-        title: Text(
-          "DAKITA",
-          style: TextStyle(
-            color: Colors.black,
-          ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              key: textKey,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
         ),
-        backgroundColor: Colors.white,
-        actions: [
-          Container(
-            key: keyChat,
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            width: 100,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Icon(
-                Icons.chat_rounded,
-                color: Colors.white,
-              ),
-            ),
-          )
-        ],
       ),
-      body: Stack(
-        children: [
-          Background(),
-          StaggeredGridView.countBuilder(
-            crossAxisCount: 2,
-            itemCount: list.length,
-            crossAxisSpacing: 2,
-            mainAxisSpacing: 2,
-            itemBuilder: (BuildContext context, int index) => new Container(
-              key: index == 0 ? keyContainer : null,
-              child: Image.asset(
-                list[index]["url"],
-                fit: BoxFit.cover,
-              ),
-            ),
-            staggeredTileBuilder: (int index) =>
-                new StaggeredTile.count(list[index]["x"], list[index]["y"]),
-          )
-        ],
+      floatingActionButton: FloatingActionButton(
+        key: incrementKey,
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
-      drawer: Drawer(),
-    );
-  }
-}
-
-class Background extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-        colors: [
-          Color.fromRGBO(44, 191, 224, 1),
-          Color.fromRGBO(129, 71, 243, 1),
-        ],
-      )),
     );
   }
 }

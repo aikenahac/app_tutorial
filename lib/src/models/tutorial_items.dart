@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:app_tutorial/src/models/shape_models.dart';
 
 /// This is the class that will be used to create the shapes
-class TutorialItems {
+class TutorialItem {
   final GlobalKey? globalKey;
   final ShapeFocus? shapeFocus;
   final List<Widget>? children;
@@ -18,7 +18,7 @@ class TutorialItems {
   final bool touchScreen;
 
   /// This is the constructor of the class
-  TutorialItems({
+  TutorialItem({
     this.top,
     this.bottom,
     this.left,

@@ -7,15 +7,14 @@ import 'package:app_tutorial/src/painter/painter.dart';
 /// This is the main class of the app.
 class Tutorial {
   /// The method that shows the tutorial
-  static showTutorial(
-      BuildContext context, List<TutorialItems> children) async {
+  static showTutorial(BuildContext context, List<TutorialItem> children) async {
     int count = 0;
     var size = MediaQuery.of(context).size;
-    OverlayState overlayState = Overlay.of(context)!;
+    OverlayState overlayState = Overlay.of(context);
     List<OverlayEntry> entries = [];
     children.forEach((element) async {
-      var offset = _capturePositionWidget(element.globalKey!);
-      var sizeWidget = _getSizeWidget(element.globalKey!);
+      final offset = _capturePositionWidget(element.globalKey!);
+      final sizeWidget = _getSizeWidget(element.globalKey!);
       entries.add(
         OverlayEntry(
           builder: (context) {
@@ -36,13 +35,14 @@ class Tutorial {
                     CustomPaint(
                       size: size,
                       painter: HolePainter(
-                          shapeFocus: element.shapeFocus,
-                          dx: offset.dx + (sizeWidget.width / 2),
-                          dy: offset.dy + (sizeWidget.height / 2),
-                          width: sizeWidget.width,
-                          height: sizeWidget.height,
-                          color: element.color,
-                          borderRadius: element.borderRadius),
+                        shapeFocus: element.shapeFocus,
+                        dx: offset.dx + (sizeWidget.width / 2),
+                        dy: offset.dy + (sizeWidget.height / 2),
+                        width: sizeWidget.width,
+                        height: sizeWidget.height,
+                        color: element.color,
+                        borderRadius: element.borderRadius,
+                      ),
                     ),
                     Positioned(
                       top: element.top,
@@ -59,7 +59,7 @@ class Tutorial {
                             GestureDetector(
                               child: element.widgetNext ??
                                   Text(
-                                    "NEXT",
+                                    "Next",
                                     style: TextStyle(color: Colors.white),
                                   ),
                               onTap: () {
@@ -89,14 +89,14 @@ class Tutorial {
   /// This method returns the position of the widget
   static Offset _capturePositionWidget(GlobalKey key) {
     RenderBox renderPosition =
-        key.currentContext!.findRenderObject() as RenderBox;
+        key.currentContext?.findRenderObject() as RenderBox;
 
     return renderPosition.localToGlobal(Offset.zero);
   }
 
   /// This method returns the size of the widget
   static Size _getSizeWidget(GlobalKey key) {
-    RenderBox renderSize = key.currentContext!.findRenderObject() as RenderBox;
+    RenderBox renderSize = key.currentContext?.findRenderObject() as RenderBox;
     return renderSize.size;
   }
 }

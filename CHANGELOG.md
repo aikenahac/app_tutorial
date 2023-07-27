@@ -17,3 +17,6 @@
 ## [0.3.1] - Provide better documentation in the code
 
 ## [0.3.2] - Format project
+
+## [1.0.0] - First release
+Includes breaking changes: TutorialItems -> TutorialItem

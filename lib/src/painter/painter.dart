@@ -46,7 +46,11 @@ class HolePainter extends CustomPainter {
             Path()
               ..addRRect(RRect.fromRectAndCorners(
                 Rect.fromLTWH(
-                    dx! - (width! / 2), dy! - (height! / 2), width!, height!),
+                  dx! - (width! / 2),
+                  dy! - (height! / 2),
+                  width!,
+                  height!,
+                ),
                 topRight: borderRadius!,
                 topLeft: borderRadius!,
                 bottomRight: borderRadius!,
