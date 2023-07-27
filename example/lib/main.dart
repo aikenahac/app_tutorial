@@ -46,14 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void initItems() {
-    final width = MediaQuery.of(context).size.width;
-
     items.addAll({
       TutorialItem(
         globalKey: incrementKey,
         top: 200,
-        left: width * 0.1,
-        right: width * 0.1,
+        left: 50,
+        right: 50,
         color: Colors.black.withOpacity(0.6),
         borderRadius: const Radius.circular(15.0),
         shapeFocus: ShapeFocus.roundedSquare,
@@ -78,8 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
       TutorialItem(
         globalKey: textKey,
         top: 200,
-        left: width * 0.1,
-        right: width * 0.1,
+        left: 50,
+        right: 50,
         shapeFocus: ShapeFocus.square,
         borderRadius: const Radius.circular(15.0),
         children: const [
@@ -104,8 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
       TutorialItem(
         globalKey: avatarKey,
         top: 200,
-        left: width * 0.1,
-        right: width * 0.1,
+        left: 50,
+        right: 50,
         color: Colors.black.withOpacity(0.6),
         shapeFocus: ShapeFocus.oval,
         children: const [
@@ -132,15 +130,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    initItems();
+    Future.delayed(const Duration(microseconds: 200)).then((value) {
+      Tutorial.showTutorial(context, items);
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    initItems();
-    Future.delayed(const Duration(microseconds: 200)).then((value) {
-      Tutorial.showTutorial(context, items);
-    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
