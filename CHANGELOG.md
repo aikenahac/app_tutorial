@@ -23,3 +23,5 @@ Includes breaking changes: TutorialItems -> TutorialItem
 
 ## [1.0.1] - Updated base model
 Major change on the TutorialItem model. See the documentation
+
+## [1.0.2] - Updated example
