@@ -25,3 +25,5 @@ Includes breaking changes: TutorialItems -> TutorialItem
 Major change on the TutorialItem model. See the documentation
 
 ## [1.0.2] - Updated example
+
+## [1.0.3] - Updated default values

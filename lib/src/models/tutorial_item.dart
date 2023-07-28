@@ -24,7 +24,7 @@ class TutorialItem {
     this.left,
     this.right,
     this.color = const Color.fromRGBO(0, 0, 0, 0.6),
-    this.borderRadius = const Radius.circular(0.0),
+    this.borderRadius = const Radius.circular(10.0),
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.shapeFocus = ShapeFocus.roundedSquare,
