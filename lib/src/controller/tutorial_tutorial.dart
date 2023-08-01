@@ -6,12 +6,16 @@ import 'package:app_tutorial/src/painter/painter.dart';
 
 /// This is the main class of the app.
 class Tutorial {
+  static List<OverlayEntry> entries = [];
+  static late int count;
+
   /// The method that shows the tutorial
   static showTutorial(BuildContext context, List<TutorialItem> children) async {
-    int count = 0;
     var size = MediaQuery.of(context).size;
     OverlayState overlayState = Overlay.of(context);
-    List<OverlayEntry> entries = [];
+
+    count = 0;
+
     children.forEach((element) async {
       final offset = _capturePositionWidget(element.globalKey);
       final sizeWidget = _getSizeWidget(element.globalKey);
@@ -22,7 +26,7 @@ class Tutorial {
               onTap: () {
                 entries[count].remove();
                 count++;
-                if (count != entries.length) {
+                if (count < entries.length) {
                   overlayState.insert(entries[count]);
                 }
               },
@@ -40,22 +44,10 @@ class Tutorial {
                         height: sizeWidget.height,
                         color: element.color,
                         borderRadius: element.borderRadius,
+                        radius: element.radius,
                       ),
                     ),
-                    Positioned(
-                      top: element.top,
-                      bottom: element.bottom,
-                      left: element.left,
-                      right: element.right,
-                      child: Container(
-                        width: size.width * 0.8,
-                        child: Column(
-                          crossAxisAlignment: element.crossAxisAlignment,
-                          mainAxisAlignment: element.mainAxisAlignment,
-                          children: element.children,
-                        ),
-                      ),
-                    )
+                    element.child,
                   ],
                 ),
               ),
@@ -66,6 +58,11 @@ class Tutorial {
     });
 
     overlayState.insert(entries[0]);
+  }
+
+  static skipAll(BuildContext context) {
+    entries[count].remove();
+    count++;
   }
 
   /// This method returns the position of the widget

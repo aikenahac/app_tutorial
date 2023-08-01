@@ -49,81 +49,31 @@ class _MyHomePageState extends State<MyHomePage> {
     items.addAll({
       TutorialItem(
         globalKey: incrementKey,
-        top: 200,
-        left: 50,
-        right: 50,
         color: Colors.black.withOpacity(0.6),
         borderRadius: const Radius.circular(15.0),
         shapeFocus: ShapeFocus.roundedSquare,
-        children: const [
-          Text(
-            'This is the increment button',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-          ),
-          SizedBox(height: 20.0),
-          Text(
-            'Next',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-          ),
-        ],
+        child: const TutorialItemContent(
+          title: 'Increment button',
+          content: 'This is the increment button',
+        ),
       ),
       TutorialItem(
         globalKey: textKey,
-        top: 200,
-        left: 50,
-        right: 50,
         shapeFocus: ShapeFocus.square,
         borderRadius: const Radius.circular(15.0),
-        children: const [
-          Text(
-            'This is the text that displays the status of the counter',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 20.0),
-          Text(
-            'Next',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-          ),
-        ],
+        child: const TutorialItemContent(
+          title: 'Counter text',
+          content: 'This is the text that displays the status of the counter',
+        ),
       ),
       TutorialItem(
         globalKey: avatarKey,
-        top: 200,
-        left: 50,
-        right: 50,
         color: Colors.black.withOpacity(0.6),
         shapeFocus: ShapeFocus.oval,
-        children: const [
-          Text(
-            'This is the avatar that displays something',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 20.0),
-          Text(
-            'Next',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-          ),
-        ],
+        child: const TutorialItemContent(
+          title: 'Avatar',
+          content: 'This is the avatar that displays something',
+        ),
       ),
     });
   }
@@ -168,6 +118,57 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class TutorialItemContent extends StatelessWidget {
+  const TutorialItemContent({
+    super.key,
+    required this.title,
+    required this.content,
+  });
+
+  final String title;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    return Center(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.6,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+          child: Column(
+            children: [
+              Text(
+                title,
+              ),
+              const SizedBox(height: 10.0),
+              Text(
+                content,
+                textAlign: TextAlign.center,
+              ),
+              const Spacer(),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () => Tutorial.skipAll(context),
+                    child: const Text('Skip onboarding'),
+                  ),
+                  const Spacer(),
+                  const TextButton(
+                    onPressed: null,
+                    child: Text('Skip onboarding'),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

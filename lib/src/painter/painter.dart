@@ -10,6 +10,7 @@ class HolePainter extends CustomPainter {
   final Color color;
   final Radius borderRadius;
   final ShapeFocus shapeFocus;
+  final double? radius;
 
   /// A constructor that takes in the data of the shape
   HolePainter({
@@ -18,6 +19,7 @@ class HolePainter extends CustomPainter {
     required this.width,
     required this.height,
     required this.color,
+    required this.radius,
     required this.borderRadius,
     this.shapeFocus = ShapeFocus.oval,
   });
@@ -33,7 +35,8 @@ class HolePainter extends CustomPainter {
             PathOperation.difference,
             Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height)),
             Path()
-              ..addOval(Rect.fromCircle(center: Offset(dx, dy), radius: width))
+              ..addOval(Rect.fromCircle(
+                  center: Offset(dx, dy), radius: radius ?? width))
               ..close(),
           ),
           paint);
