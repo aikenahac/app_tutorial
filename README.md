@@ -15,7 +15,7 @@ View the [example project](https://github.com/aikenahac/app_tutorial/tree/master
 
 #### Properties:
 
-**TutorialItem**
+##### TutorialItem
 
 | Property | Description | Type | Required | Default value |
 | -------- | ----------- | ---- | -------- | ------------- |
@@ -26,13 +26,17 @@ View the [example project](https://github.com/aikenahac/app_tutorial/tree/master
 | radius | Radius of the `ShapeFocus.oval` shape | `double?` | `no` | `null` |
 | shapeFocus | Shape of the focus element | `ShapeFocus.oval`, `ShapeFocus.square`, `ShapeFocus.roundedSquare` | `no` |  `ShapeFocus.roundedSquare` |
 
-**Tutorial.show(context,items)**
+##### Tutorial
 
-show() -   the show () method, receives two parameters, the context and the list of tutorial items you created
+- `show()` - the show () method, receives two parameters, the context and the list of tutorial items you created
 Now just run the Tutorial.show(context, items)
-
 ```
 Tutorial.showTutorial(context, items);
+```
+
+- `skipAll()` - the skipAll() method receives the context parameter and ends the onboarding process
+```
+Tutorial.skipAll(context, items);
 ```
 
 ###### This package is a separated fork of [this package](https://pub.dev/packages/tutorial).
