@@ -21,8 +21,9 @@ View the [example project](https://github.com/aikenahac/app_tutorial/tree/master
 | -------- | ----------- | ---- | -------- | ------------- |
 | globalKey | The Global Key of the component you want to focus on | `GlobalKey` | `yes` | / |
 | child | Widget to show on the screen when this item is active | `Widget` | `yes`| / |
-| color | Color of the overlay | `Color` | `no` | `Color.fromRGBO(0, 0, 0, 0.6)` |
+| color | Color of the overlay | `Color?` | `no` | `Color.fromRGBO(0, 0, 0, 0.6)` |
 | borderRadius | Radius of the border of the higlighted item | `Radius` | `no` | `Radius.circular(10.0)` |
+| radius | Radius of the `ShapeFocus.oval` shape | `double?` | `no` | `null` |
 | shapeFocus | Shape of the focus element | `ShapeFocus.oval`, `ShapeFocus.square`, `ShapeFocus.roundedSquare` | `no` |  `ShapeFocus.roundedSquare` |
 
 **Tutorial.show(context,items)**
