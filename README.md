@@ -36,7 +36,7 @@ Tutorial.showTutorial(context, items);
 
 - `skipAll()` - the skipAll() method receives the context parameter and ends the onboarding process
 ```
-Tutorial.skipAll(context, items);
+Tutorial.skipAll(context);
 ```
 
 ###### This package is a separated fork of [this package](https://pub.dev/packages/tutorial).
