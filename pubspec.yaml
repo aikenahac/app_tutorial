@@ -1,6 +1,6 @@
 name: app_tutorial
 description: Package for creating onboarding flows for your app to explain the features of the app in a seamless ways to you users.
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/aikenahac/app-tutorial
 
 environment:

@@ -34,3 +34,5 @@ This update permits users to have more control over the onboarding flow
 - Use the `Tutorial.skipAll()` method to skip the tutorial
 - Replaced `children` property with `child`, which allows for full control over the content
 - Added the `radius` property, which will be used to set a custom radius for the `ShapeFocus.oval` shape
+
+## [1.0.5] - Updated docs
