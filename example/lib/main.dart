@@ -146,23 +146,31 @@ class TutorialItemContent extends StatelessWidget {
             children: [
               Text(
                 title,
+                style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 10.0),
               Text(
                 content,
                 textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.white),
               ),
               const Spacer(),
               Row(
                 children: [
                   TextButton(
                     onPressed: () => Tutorial.skipAll(context),
-                    child: const Text('Skip onboarding'),
+                    child: const Text(
+                      'Skip onboarding',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   const Spacer(),
                   const TextButton(
                     onPressed: null,
-                    child: Text('Skip onboarding'),
+                    child: Text(
+                      'Next',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ],
               )

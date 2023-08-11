@@ -11,7 +11,8 @@ class Tutorial {
 
   /// The method that shows the tutorial
   static showTutorial(BuildContext context, List<TutorialItem> children) async {
-    var size = MediaQuery.of(context).size;
+    clearEntries();
+    final size = MediaQuery.of(context).size;
     OverlayState overlayState = Overlay.of(context);
 
     count = 0;
@@ -58,6 +59,10 @@ class Tutorial {
     });
 
     overlayState.insert(entries[0]);
+  }
+
+  static clearEntries() {
+    entries.clear();
   }
 
   static skipAll(BuildContext context) {
