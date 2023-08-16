@@ -34,7 +34,6 @@ Tutorial.showTutorial(context, items, onTutorialComplete: () {
   // Code to be executed after the tutorial ends
   print('Tutorial is complete!');
 });
-
 ```
 
 - `skipAll()` - the skipAll() method receives the context parameter and ends the onboarding process
