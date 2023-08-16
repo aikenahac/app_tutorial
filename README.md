@@ -28,10 +28,13 @@ View the [example project](https://github.com/aikenahac/app_tutorial/tree/master
 
 ##### Tutorial
 
-- `show()` - the show () method, receives two parameters, the context and the list of tutorial items you created
-Now just run the Tutorial.show(context, items)
+- `show()` - the show () method, receives three parameters, the context, list of tutorial items you created and the onTutorialComplete callback.
 ```
-Tutorial.showTutorial(context, items);
+Tutorial.showTutorial(context, items, onTutorialComplete: () {
+  // Code to be executed after the tutorial ends
+  print('Tutorial is complete!');
+});
+
 ```
 
 - `skipAll()` - the skipAll() method receives the context parameter and ends the onboarding process
