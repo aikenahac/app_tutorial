@@ -82,7 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     initItems();
     Future.delayed(const Duration(microseconds: 200)).then((value) {
-      Tutorial.showTutorial(context, items);
+      Tutorial.showTutorial(context, items, onTutorialComplete: () {
+        // Code to be executed after the tutorial ends
+        print('Tutorial is complete!');
+      });
     });
     super.initState();
   }
